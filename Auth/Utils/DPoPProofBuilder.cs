@@ -1,4 +1,5 @@
-﻿using Common.Models;
+﻿using System.Buffers.Text;
+using Common.Models;
 using Duende.IdentityModel;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -60,7 +61,7 @@ public static class DPoPProofBuilder
             // the SHA-256 [SHS] hash of the ASCII encoding of the associated access token's value.
             using var sha256 = SHA256.Create();
             var hash = sha256.ComputeHash(Encoding.ASCII.GetBytes(accessToken));
-            var ath = Base64Url.Encode(hash);
+            var ath = Base64Url.EncodeToString(hash);
 
             payload[JwtClaimTypes.DPoPAccessTokenHash] = ath;
         }
