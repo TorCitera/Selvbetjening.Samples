@@ -19,7 +19,7 @@ internal static class Program
 
         var update = new ClientUpdate
         {
-            ApiScopes = [SelvbetjeningClientScope, "magnusbv:api/api"],
+            ApiScopes = [SelvbetjeningClientScope, "a_new_scope"],
             AudienceSpecificClientClaims = null,
             ChildOrganizationNumbers = null,
             PostLogoutRedirectUris = null,
